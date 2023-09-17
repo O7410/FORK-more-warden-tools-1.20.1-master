@@ -1,0 +1,11 @@
+{
+  "item.morewardentools.warden_heart": "Warden Heart",
+  "item.morewardentools.warden_orb": "Warden Orb",
+
+  "item.morewardentools.warden_axe": "Warden Axe",
+  "item.morewardentools.warden_sword": "Warden Sword",
+  "item.morewardentools.warden_pickaxe": "Warden Pickaxe",
+  "item.morewardentools.warden_shovel": "Warden Shovel",
+
+  "itemgroup.warden_heart": "Warden Tools"
+}

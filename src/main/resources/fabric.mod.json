@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "more-warden-tools",
+	"version": "0.0.1",
+	"name": "More Warden Tools",
+	"description": "Mod that adds warden armor and tools to minecraft",
+	"authors": [
+		"yanay!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/more-warden-tools/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.yanay.morewardentools.MoreWardenTools"
+		],
+		"client": [
+			"net.yanay.morewardentools.MoreWardenToolsClient"
+		],
+		"fabric-datagen": [
+			"net.yanay.morewardentools.MoreWardenToolsDataGenerator"
+		]
+	},
+	"mixins": [
+		"more-warden-tools.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
