@@ -23,5 +23,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.WARDEN_ORB, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.WARDEN_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WARDEN_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WARDEN_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WARDEN_SHOVEL, Models.HANDHELD);
     }
 }
