@@ -6,7 +6,7 @@ import net.minecraft.recipe.Ingredient;
 import java.util.function.Supplier;
 
 public enum ModToolsMaterial implements ToolMaterial {
-    WARDEN_HEART(5, 2031, 9.0f, 4.0f, 15,
+    WARDEN_HEART(5, 2131, 10.0f, 0.0f, 15,
             () -> Ingredient.ofItems(ModItems.WARDEN_HEART));
 
     private final int miningLevel;
