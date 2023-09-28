@@ -18,7 +18,7 @@ public class ModItems {
     public static final Item WARDEN_AXE = registerItem("warden_axe",
             new AxeItem(ModToolsMaterial.WARDEN_HEART, 10, -2.5f, new FabricItemSettings()));
     public static final Item WARDEN_SWORD = registerItem("warden_sword",
-            new SwordItem(ModToolsMaterial.WARDEN_HEART, 8, -2f, new FabricItemSettings()));
+            new SwordItem(ModToolsMaterial.WARDEN_HEART, 9, -2f, new FabricItemSettings()));
     public static final Item WARDEN_SHOVEL = registerItem("warden_shovel",
             new ShovelItem(ModToolsMaterial.WARDEN_HEART, 6, -3f, new FabricItemSettings()));
 
