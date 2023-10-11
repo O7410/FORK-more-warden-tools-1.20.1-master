@@ -7,5 +7,10 @@
   "item.morewardentools.warden_pickaxe": "Warden Pickaxe",
   "item.morewardentools.warden_shovel": "Warden Shovel",
 
+  "item.morewardentools.warden_helmet": "Warden Helmet",
+  "item.morewardentools.warden_chestplate": "Warden Chestplate",
+  "item.morewardentools.warden_leggings": "Warden Leggings",
+  "item.morewardentools.warden_boots": "Warden Boots",
+
   "itemgroup.warden_heart": "Warden Tools"
 }

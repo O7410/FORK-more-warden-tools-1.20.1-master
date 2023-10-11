@@ -22,6 +22,15 @@ public class ModItems {
     public static final Item WARDEN_SHOVEL = registerItem("warden_shovel",
             new ShovelItem(ModToolsMaterial.WARDEN_HEART, 6, -3f, new FabricItemSettings()));
 
+    public static final Item WARDEN_HELMET = registerItem("warden_helmet",
+            new ArmorItem(ModArmorMaterials.WARDEN_HEART, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item WARDEN_CHESTPLATE = registerItem("warden_chestplate",
+            new ArmorItem(ModArmorMaterials.WARDEN_HEART, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item WARDEN_LEGGINGS = registerItem("warden_leggings",
+            new ArmorItem(ModArmorMaterials.WARDEN_HEART, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item WARDEN_BOOTS = registerItem("warden_boots",
+            new ArmorItem(ModArmorMaterials.WARDEN_HEART, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
         entries.add(WARDEN_HEART);
     }

@@ -19,6 +19,11 @@ public class ModItemGroups {
                         entries.add(ModItems.WARDEN_AXE);
                         entries.add(ModItems.WARDEN_SHOVEL);
 
+                        entries.add(ModItems.WARDEN_HELMET);
+                        entries.add(ModItems.WARDEN_CHESTPLATE);
+                        entries.add(ModItems.WARDEN_LEGGINGS);
+                        entries.add(ModItems.WARDEN_BOOTS);
+
                         entries.add(ModItems.WARDEN_ORB);
                         entries.add(ModItems.WARDEN_HEART);
 
