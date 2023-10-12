@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "H": {
-      "item": "minecraft:stick"
+    "B": {
+      "item": "morewardentools:warden_bone"
     },
     "S": {
       "item": "morewardentools:warden_orb"
@@ -11,8 +11,8 @@
   },
   "pattern": [
     "SS ",
-    "SH ",
-    " H "
+    "SB ",
+    " B "
   ],
   "result": {
     "item": "morewardentools:warden_axe"

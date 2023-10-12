@@ -24,8 +24,9 @@ public class ModItemGroups {
                         entries.add(ModItems.WARDEN_LEGGINGS);
                         entries.add(ModItems.WARDEN_BOOTS);
 
-                        entries.add(ModItems.WARDEN_ORB);
                         entries.add(ModItems.WARDEN_HEART);
+                        entries.add(ModItems.WARDEN_BONE);
+                        entries.add(ModItems.WARDEN_ORB);
 
                     }).build());
 

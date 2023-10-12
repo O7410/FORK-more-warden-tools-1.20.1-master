@@ -29,10 +29,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.WARDEN_AXE,1)
                 .pattern("SS ")
-                .pattern("SH ")
-                .pattern(" H ")
+                .pattern("SB ")
+                .pattern(" B ")
                 .input('S', ModItems.WARDEN_ORB)
-                .input('H', Items.STICK)
+                .input('B', ModItems.WARDEN_BONE)
                 .criterion(hasItem(ModItems.WARDEN_ORB), conditionsFromItem(ModItems.WARDEN_ORB))
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.WARDEN_AXE)));

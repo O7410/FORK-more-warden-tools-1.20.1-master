@@ -11,6 +11,7 @@ import net.yanay.morewardentools.MoreWardenTools;
 public class ModItems {
     public static final Item WARDEN_HEART = registerItem("warden_heart", new Item(new FabricItemSettings()));
     public static final Item WARDEN_ORB = registerItem("warden_orb", new Item(new FabricItemSettings()));
+    public static final Item WARDEN_BONE = registerItem("warden_bone", new Item(new FabricItemSettings()));
 
 
     public static final Item WARDEN_PICKAXE = registerItem("warden_pickaxe",
