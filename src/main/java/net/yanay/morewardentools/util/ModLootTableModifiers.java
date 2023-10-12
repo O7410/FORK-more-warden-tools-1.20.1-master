@@ -26,6 +26,15 @@ public class ModLootTableModifiers {
 
                 tableBuilder.pool(poolBuilder.build());
             }
+            if(WARDEN_ID.equals(id)) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.90f))
+                        .with(ItemEntry.builder(ModItems.WARDEN_BONE))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 5.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
         });
     }
 }
