@@ -3,7 +3,7 @@
 	"package": "net.yanay.morewardentools.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"WardenEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

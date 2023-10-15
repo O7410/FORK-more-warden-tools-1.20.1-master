@@ -7,6 +7,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.yanay.morewardentools.MoreWardenTools;
+import net.yanay.morewardentools.item.custom.ModArmorItem;
 
 public class ModItems {
     public static final Item WARDEN_HEART = registerItem("warden_heart", new Item(new FabricItemSettings()));
@@ -24,7 +25,7 @@ public class ModItems {
             new ShovelItem(ModToolsMaterial.WARDEN_HEART, 6, -3f, new FabricItemSettings()));
 
     public static final Item WARDEN_HELMET = registerItem("warden_helmet",
-            new ArmorItem(ModArmorMaterials.WARDEN_HEART, ArmorItem.Type.HELMET, new FabricItemSettings()));
+            new ModArmorItem(ModArmorMaterials.WARDEN_HEART, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item WARDEN_CHESTPLATE = registerItem("warden_chestplate",
             new ArmorItem(ModArmorMaterials.WARDEN_HEART, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
     public static final Item WARDEN_LEGGINGS = registerItem("warden_leggings",
