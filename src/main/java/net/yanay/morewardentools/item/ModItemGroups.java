@@ -10,9 +10,9 @@ import net.minecraft.util.Identifier;
 import net.yanay.morewardentools.MoreWardenTools;
 
 public class ModItemGroups {
-    public static final ItemGroup WARDEN_TOOLS_GROUP = Registry.register(Registries.ITEM_GROUP,
+    public static final ItemGroup WARDEN_TOOLS = Registry.register(Registries.ITEM_GROUP,
             new Identifier(MoreWardenTools.MOD_ID, "warden_heart"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.warden_heart"))
+            FabricItemGroup.builder().displayName(Text.translatable("itemGroup.warden_heart"))
                     .icon(() -> new ItemStack(ModItems.WARDEN_ORB)).entries((displayContext, entries) -> {
                         entries.add(ModItems.WARDEN_SWORD);
                         entries.add(ModItems.WARDEN_PICKAXE);

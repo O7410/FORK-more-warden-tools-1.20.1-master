@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/MISTI-CAT/more-warden-tools-1.20.1-master"
 	},
 	"license": "MIT",
 	"icon": "assets/morewardentools/icon.png",
@@ -29,8 +29,8 @@
 		"morewardentools.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.21",
-		"minecraft": "~1.20.1",
+		"fabricloader": ">=0.15.1",
+		"minecraft": "~1.20.4",
 		"java": ">=17",
 		"fabric-api": "*"
 	},

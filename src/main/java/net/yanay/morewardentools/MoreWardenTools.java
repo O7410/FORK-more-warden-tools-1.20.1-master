@@ -17,6 +17,6 @@ public class MoreWardenTools implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 
-		ModLootTableModifiers.modifyLootTable();
+		ModLootTableModifiers.modifyLootTables();
 	}
 }

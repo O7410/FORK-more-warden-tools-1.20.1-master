@@ -2,7 +2,6 @@ package net.yanay.morewardentools.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,10 +14,12 @@ import net.yanay.morewardentools.item.ModArmorMaterials;
 import java.util.Map;
 
 public class ModArmorItem extends ArmorItem {
-    private static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
-            (new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
-                    .put(ModArmorMaterials.WARDEN_HEART, new StatusEffectInstance(StatusEffects.SATURATION, 0, 0,
-                            false, false, false)).build();
+    private static final Map<ArmorMaterial, StatusEffectInstance[]> MATERIAL_TO_EFFECTS_MAP = new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance[]>()
+            .put(ModArmorMaterials.WARDEN_HEART, new StatusEffectInstance[]{
+                    new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 400, 0, false, false),
+                    new StatusEffectInstance(StatusEffects.RESISTANCE, 400, 1, false, false),
+                    new StatusEffectInstance(StatusEffects.SATURATION, 400, 1, false, false)})
+            .build();
 
     public ModArmorItem(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
@@ -26,70 +27,23 @@ public class ModArmorItem extends ArmorItem {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if(!world.isClient()) {
-            if(entity instanceof PlayerEntity player && hasFullSuitOfArmorOn(player)) {
-                evaluateArmorEffects(player);
+        super.inventoryTick(stack, world, entity, slot, selected);
+        if (!world.isClient() && entity instanceof PlayerEntity player) {
+            boolean isWearingFullCorrectArmor = true;
+            for (ItemStack armorStack : player.getArmorItems()) {
+                if (!(armorStack.getItem() instanceof ArmorItem armorItem) || armorItem.getMaterial() != this.material) {
+                    isWearingFullCorrectArmor = false;
+                    break;
+                }
             }
 
-            if(!world.isClient()) {
-                if (entity instanceof PlayerEntity player) {
-                    if (player.getEquippedStack(EquipmentSlot.HEAD).getItem() == this) {
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE,
-                                400, 0, false, false));
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE,
-                                400, 1, false, false));
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.SATURATION,
-                                400, 1, false, false));
+            if (isWearingFullCorrectArmor && MATERIAL_TO_EFFECTS_MAP.containsKey(this.material)) {
+                for (StatusEffectInstance statusEffectInstance : MATERIAL_TO_EFFECTS_MAP.get(this.material)) {
+                    if (!player.hasStatusEffect(statusEffectInstance.getEffectType())) {
+                        player.addStatusEffect(new StatusEffectInstance(statusEffectInstance));
                     }
                 }
             }
         }
-
-        super.inventoryTick(stack, world, entity, slot, selected);
-    }
-
-    private void evaluateArmorEffects(PlayerEntity player) {
-        for (Map.Entry<ArmorMaterial, StatusEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
-            ArmorMaterial mapArmorMaterial = entry.getKey();
-            StatusEffectInstance mapStatusEffect = entry.getValue();
-
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
-                addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
-            }
-        }
-    }
-
-    private void addStatusEffectForMaterial(PlayerEntity player, ArmorMaterial mapArmorMaterial, StatusEffectInstance mapStatusEffect) {
-        boolean hasPlayerEffect = player.hasStatusEffect(mapStatusEffect.getEffectType());
-
-        if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
-            player.addStatusEffect(new StatusEffectInstance(mapStatusEffect));
-        }
-    }
-
-    private boolean hasFullSuitOfArmorOn(PlayerEntity player) {
-        ItemStack boots = player.getInventory().getArmorStack(0);
-        ItemStack leggings = player.getInventory().getArmorStack(1);
-        ItemStack breastplate = player.getInventory().getArmorStack(2);
-        ItemStack helmet = player.getInventory().getArmorStack(3);
-
-        return !helmet.isEmpty() && !breastplate.isEmpty()
-                && !leggings.isEmpty() && !boots.isEmpty();
-    }
-
-    private boolean hasCorrectArmorOn(ArmorMaterial material, PlayerEntity player) {
-        for (ItemStack armorStack: player.getInventory().armor) {
-            if(!(armorStack.getItem() instanceof ArmorItem)) {
-                return false;
-            }
-        }
-
-        ArmorItem boots = ((ArmorItem)player.getInventory().getArmorStack(0).getItem());
-        ArmorItem leggings = ((ArmorItem)player.getInventory().getArmorStack(1).getItem());
-        ArmorItem breastplate = ((ArmorItem)player.getInventory().getArmorStack(2).getItem());
-        ArmorItem helmet = ((ArmorItem)player.getInventory().getArmorStack(3).getItem());
-
-        return helmet.getMaterial() == material && breastplate.getMaterial() == material &&
-                leggings.getMaterial() == material && boots.getMaterial() == material;
     }
 }
