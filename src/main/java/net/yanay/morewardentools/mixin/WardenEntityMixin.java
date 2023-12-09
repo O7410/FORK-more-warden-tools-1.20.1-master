@@ -24,7 +24,7 @@ public class WardenEntityMixin {
     private static void addDarknessToClosePlayers(ServerWorld world, Vec3d pos, @Nullable Entity entity, int range, CallbackInfo ci) {
         StatusEffectInstance statusEffectInstance = new StatusEffectInstance(StatusEffects.DARKNESS, 260, 0, false, false);
         StatusEffect statusEffect = statusEffectInstance.getEffectType();
-        List<ServerPlayerEntity> list = world.getPlayers(player -> !(!player.interactionManager.isSurvivalLike() || entity != null && entity.isTeammate(player) ||
+        List<ServerPlayerEntity> players = world.getPlayers(player -> !(!player.interactionManager.isSurvivalLike() || entity != null && entity.isTeammate(player) ||
                 !pos.isInRange(player.getPos(), range) || player.hasStatusEffect(statusEffect) &&
                 player.getStatusEffect(statusEffect).getAmplifier() >= statusEffectInstance.getAmplifier() && !player.getStatusEffect(statusEffect).isDurationBelow(199) ||
                 (player.getEquippedStack(EquipmentSlot.FEET).isOf(ModItems.WARDEN_BOOTS) &&
@@ -32,7 +32,7 @@ public class WardenEntityMixin {
                         player.getEquippedStack(EquipmentSlot.CHEST).isOf(ModItems.WARDEN_CHESTPLATE) &&
                         player.getEquippedStack(EquipmentSlot.HEAD).isOf(ModItems.WARDEN_HELMET))
         ));
-        list.forEach(player -> player.addStatusEffect(new StatusEffectInstance(statusEffectInstance), entity));
+        players.forEach(player -> player.addStatusEffect(new StatusEffectInstance(statusEffectInstance), entity));
         ci.cancel();
     }
 }

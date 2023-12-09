@@ -15,9 +15,9 @@ public class ModLootTableModifiers {
             new Identifier("minecraft", "entities/warden");
 
 
-    public static void modifyLootTable() {
+    public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-            if(WARDEN_ID.equals(id)) {
+            if (WARDEN_ID.equals(id)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.75f))
@@ -26,7 +26,7 @@ public class ModLootTableModifiers {
 
                 tableBuilder.pool(poolBuilder.build());
             }
-            if(WARDEN_ID.equals(id)) {
+            if (WARDEN_ID.equals(id)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.90f))
