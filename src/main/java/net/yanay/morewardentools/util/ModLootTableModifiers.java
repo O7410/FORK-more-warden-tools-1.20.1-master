@@ -18,22 +18,21 @@ public class ModLootTableModifiers {
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (WARDEN_ID.equals(id)) {
-                LootPool.Builder poolBuilder = LootPool.builder()
+                LootPool.Builder heartPoolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.75f))
                         .with(ItemEntry.builder(ModItems.WARDEN_HEART))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 10.0f)).build());
 
-                tableBuilder.pool(poolBuilder.build());
-            }
-            if (WARDEN_ID.equals(id)) {
-                LootPool.Builder poolBuilder = LootPool.builder()
+                LootPool.Builder bonePoolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.90f))
                         .with(ItemEntry.builder(ModItems.WARDEN_BONE))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 5.0f)).build());
 
-                tableBuilder.pool(poolBuilder.build());
+                tableBuilder
+                        .pool(heartPoolBuilder.build())
+                        .pool(bonePoolBuilder.build());
             }
         });
     }

@@ -14,7 +14,6 @@ public class ModItems {
     public static final Item WARDEN_ORB = registerItem("warden_orb", new Item(new FabricItemSettings()));
     public static final Item WARDEN_BONE = registerItem("warden_bone", new Item(new FabricItemSettings()));
 
-
     public static final Item WARDEN_PICKAXE = registerItem("warden_pickaxe",
             new PickaxeItem(ModToolsMaterial.WARDEN_HEART, 6, -2.7f, new FabricItemSettings()));
     public static final Item WARDEN_AXE = registerItem("warden_axe",
@@ -42,6 +41,5 @@ public class ModItems {
     }
     public static void registerModItems() {
         MoreWardenTools.LOGGER.info("Registering Mod Items For " + MoreWardenTools.MOD_ID);
-
     }
 }
